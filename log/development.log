@@ -325,3 +325,1054 @@ Processing by PostsController#index as HTML
 Completed 200 OK in 29ms (Views: 28.2ms | ActiveRecord: 0.3ms | Allocations: 8094)
 
 
+Started GET "/" for 127.0.0.1 at 2021-03-17 13:41:35 +0100
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:15
+  Rendered posts/index.html.erb within layouts/application (Duration: 8.5ms | Allocations: 4215)
+  Rendered layout layouts/application.html.erb (Duration: 45.6ms | Allocations: 22460)
+Completed 200 OK in 67ms (Views: 50.2ms | ActiveRecord: 0.9ms | Allocations: 27971)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddUserIdToPosts (20210317124346)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aposts" ("id" integer NOT NULL PRIMARY KEY, "title" varchar DEFAULT NULL, "body" text DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aposts" ("id","title","body","created_at","updated_at")
+                     SELECT "id","title","body","created_at","updated_at" FROM "posts"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "posts"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer NOT NULL PRIMARY KEY, "title" varchar DEFAULT NULL, "body" text DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("id","title","body","created_at","updated_at")
+                     SELECT "id","title","body","created_at","updated_at" FROM "aposts"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePosts (20210317101828)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "posts"[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20210317101828"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePosts (20210317125110)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_5b5ddfd518"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210317125110"]]
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2021-03-17 13:53:01 +0100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (uninitialized constant PostsController):
+  
+Started GET "/" for 127.0.0.1 at 2021-03-17 13:55:18 +0100
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1701)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 1772)
+Completed 500 Internal Server Error in 6ms (Allocations: 4045)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    12:   </thead>
+    13: 
+    14:   <tbody>
+    15:     <% @posts.each do |post| %>
+    16:       <tr>
+    17:         <td><%= post.title %></td>
+    18:         <td><%= post.body %></td>
+  
+app/views/posts/index.html.erb:15
+Started GET "/" for 127.0.0.1 at 2021-03-17 13:57:00 +0100
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/posts/index.html.erb:15
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:15
+  Rendered posts/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1604)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 6144)
+Completed 200 OK in 19ms (Views: 15.1ms | ActiveRecord: 0.7ms | Allocations: 7670)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-03-17 14:04:26 +0100
+Processing by Devise::SessionsController#new as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 622)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 11.6ms | Allocations: 5210)
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 6964)
+Completed 200 OK in 24ms (Views: 15.6ms | ActiveRecord: 0.8ms | Allocations: 14367)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-03-17 14:05:29 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.3ms | Allocations: 220)
+  Rendered devise/shared/_links.html.erb (Duration: 2.2ms | Allocations: 526)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 11.3ms | Allocations: 2357)
+  Rendered layout layouts/application.html.erb (Duration: 15.7ms | Allocations: 4119)
+Completed 200 OK in 23ms (Views: 21.7ms | ActiveRecord: 0.0ms | Allocations: 6035)
+
+
+Started POST "/users" for 127.0.0.1 at 2021-03-17 14:05:44 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"dada@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dada@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.1ms | Allocations: 580)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 106)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 2117)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 3576)
+Completed 200 OK in 214ms (Views: 5.9ms | ActiveRecord: 0.3ms | Allocations: 11621)
+
+
+Started POST "/users" for 127.0.0.1 at 2021-03-17 14:05:53 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"dada@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dada@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "dada@gmail.com"], ["encrypted_password", "$2a$12$uhcZ09fUdxiqolj1m7IA3.B15ugfA9F1NUtOMLlz0pCdKSpnrkSgS"], ["created_at", "2021-03-17 13:05:53.910000"], ["updated_at", "2021-03-17 13:05:53.910000"]]
+  [1m[36mTRANSACTION (13.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 217ms (ActiveRecord: 14.3ms | Allocations: 7297)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-17 14:05:53 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:15
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1049)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 2571)
+Completed 200 OK in 7ms (Views: 3.8ms | ActiveRecord: 0.3ms | Allocations: 5481)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2021-03-17 14:06:05 +0100
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 7.1ms | Allocations: 3315)
+  Rendered posts/new.html.erb within layouts/application (Duration: 7.9ms | Allocations: 3668)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 5143)
+Completed 200 OK in 25ms (Views: 10.1ms | ActiveRecord: 0.8ms | Allocations: 9611)
+
+
+Started POST "/posts" for 127.0.0.1 at 2021-03-17 14:06:14 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"hello ari", "body"=>"hello billo"}, "commit"=>"Create Post"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 3.0ms | Allocations: 1130)
+  Rendered posts/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1243)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 2717)
+Completed 422 Unprocessable Entity in 16ms (Views: 5.8ms | ActiveRecord: 0.1ms | Allocations: 7158)
+
+
+Started POST "/posts" for 127.0.0.1 at 2021-03-17 14:07:56 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"hello ari", "body"=>"hello billo"}, "commit"=>"Create Post"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:26:in `block in create'
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "hello ari"], ["body", "hello billo"], ["user_id", 2], ["created_at", "2021-03-17 13:07:56.981588"], ["updated_at", "2021-03-17 13:07:56.981588"]]
+  ↳ app/controllers/posts_controller.rb:26:in `block in create'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:26:in `block in create'
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 37ms (ActiveRecord: 4.8ms | Allocations: 18807)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2021-03-17 14:07:56 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:62:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 300)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 1834)
+Completed 200 OK in 7ms (Views: 2.9ms | ActiveRecord: 0.3ms | Allocations: 4425)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/posts" for 127.0.0.1 at 2021-03-17 14:09:41 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:15
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 875)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 2351)
+Completed 200 OK in 19ms (Views: 6.7ms | ActiveRecord: 0.4ms | Allocations: 3909)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2021-03-17 14:12:12 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:62:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (Duration: 9.1ms | Allocations: 4185)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 4254)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 1.3ms | Allocations: 15445)
+
+
+  
+ActionView::Template::Error (undefined method `edit_post_path' for #<ActionView::Base:0x00000000011198>
+Did you mean?  edit_password_path):
+    10:   <%= @post.body %>
+    11: </p>
+    12: 
+    13: <%= link_to 'Edit', edit_post_path(@post) %> |
+    14: <%= link_to 'Back', posts_path %>
+  
+app/views/posts/show.html.erb:13
+Started GET "/posts" for 127.0.0.1 at 2021-03-17 14:12:16 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/posts"):
+  
+Started GET "/posts" for 127.0.0.1 at 2021-03-17 14:12:19 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/posts"):
+  
+Started GET "/" for 127.0.0.1 at 2021-03-17 14:12:25 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:15
+  Rendered posts/index.html.erb within layouts/application (Duration: 16.2ms | Allocations: 5003)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 5071)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.2ms | Allocations: 6592)
+
+
+  
+ActionView::Template::Error (undefined method `edit_post_path' for #<ActionView::Base:0x00000000011af8>
+Did you mean?  edit_password_path):
+    17:         <td><%= post.title %></td>
+    18:         <td><%= post.body %></td>
+    19:         <td><%= link_to 'Show', post %></td>
+    20:         <td><%= link_to 'Edit', edit_post_path(post) %></td>
+    21:         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    22:       </tr>
+    23:     <% end %>
+  
+app/views/posts/index.html.erb:20
+app/views/posts/index.html.erb:15
+Started GET "/" for 127.0.0.1 at 2021-03-17 14:13:09 +0100
+Processing by PostsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:15
+  Rendered posts/index.html.erb within layouts/application (Duration: 15.2ms | Allocations: 7736)
+  Rendered layout layouts/application.html.erb (Duration: 15.5ms | Allocations: 7805)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 2.3ms | Allocations: 15614)
+
+
+  
+ActionView::Template::Error (undefined method `edit_post_path' for #<ActionView::Base:0x000000000133d0>
+Did you mean?  edit_password_path):
+    17:         <td><%= post.title %></td>
+    18:         <td><%= post.body %></td>
+    19:         <td><%= link_to 'Show', post %></td>
+    20:         <td><%= link_to 'Edit', edit_post_path(post) %></td>
+    21:         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    22:       </tr>
+    23:     <% end %>
+  
+app/views/posts/index.html.erb:20
+app/views/posts/index.html.erb:15
+Started GET "/" for 127.0.0.1 at 2021-03-17 14:13:10 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:15
+  Rendered posts/index.html.erb within layouts/application (Duration: 16.0ms | Allocations: 4888)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 4956)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.3ms | Allocations: 6475)
+
+
+  
+ActionView::Template::Error (undefined method `edit_post_path' for #<ActionView::Base:0x00000000013b00>
+Did you mean?  edit_password_path):
+    17:         <td><%= post.title %></td>
+    18:         <td><%= post.body %></td>
+    19:         <td><%= link_to 'Show', post %></td>
+    20:         <td><%= link_to 'Edit', edit_post_path(post) %></td>
+    21:         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    22:       </tr>
+    23:     <% end %>
+  
+app/views/posts/index.html.erb:20
+app/views/posts/index.html.erb:15
+Started GET "/" for 127.0.0.1 at 2021-03-17 14:13:53 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:15
+  Rendered posts/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 988)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 2753)
+Completed 200 OK in 14ms (Views: 10.6ms | ActiveRecord: 0.4ms | Allocations: 5167)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2021-03-17 14:13:55 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:62:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (Duration: 8.1ms | Allocations: 4325)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 4393)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.2ms | Allocations: 6726)
+
+
+  
+ActionView::Template::Error (undefined method `edit_post_path' for #<ActionView::Base:0x00000000013f88>
+Did you mean?  edit_password_path):
+    10:   <%= @post.body %>
+    11: </p>
+    12: 
+    13: <%= link_to 'Edit', edit_post_path(@post) %> |
+    14: <%= link_to 'Back', posts_path %>
+  
+app/views/posts/show.html.erb:13
+Started GET "/" for 127.0.0.1 at 2021-03-17 14:14:19 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:15
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 987)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 2752)
+Completed 200 OK in 9ms (Views: 5.6ms | ActiveRecord: 0.3ms | Allocations: 5172)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2021-03-17 14:14:20 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:62:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | Allocations: 1706)
+Completed 200 OK in 11ms (Views: 4.5ms | ActiveRecord: 0.2ms | Allocations: 3933)
+
+
+Started GET "/posts" for 127.0.0.1 at 2021-03-17 14:14:22 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:15
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 760)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 2222)
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 0.1ms | Allocations: 3777)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2021-03-17 14:14:23 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:62:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 88)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 1550)
+Completed 200 OK in 6ms (Views: 2.6ms | ActiveRecord: 0.1ms | Allocations: 3646)
+
+
+Started GET "/posts" for 127.0.0.1 at 2021-03-17 14:14:23 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:15
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 760)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 2222)
+Completed 200 OK in 6ms (Views: 3.4ms | ActiveRecord: 0.2ms | Allocations: 3777)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2021-03-17 14:14:25 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:62:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 88)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 1550)
+Completed 200 OK in 5ms (Views: 1.9ms | ActiveRecord: 0.1ms | Allocations: 3646)
+
+
+Started GET "/posts" for 127.0.0.1 at 2021-03-17 14:14:25 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:15
+  Rendered posts/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 760)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 2222)
+Completed 200 OK in 15ms (Views: 9.6ms | ActiveRecord: 0.4ms | Allocations: 3777)
+
+
+Started GET "/posts" for 127.0.0.1 at 2021-03-17 14:17:34 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:15
+  Rendered posts/index.html.erb within layouts/application (Duration: 11.9ms | Allocations: 5332)
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 5401)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.2ms | Allocations: 7780)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `user_signed_in' for #<ActionView::Base:0x00000000014668>
+Did you mean?  user_signed_in?):
+    13: 
+    14:   <tbody>
+    15:     <% @posts.each do |post| %>
+    16:       <% if user_signed_in %>
+    17:         <tr>
+    18:           <td><%= post.title %></td>
+    19:           <td><%= post.body %></td>
+  
+app/views/posts/index.html.erb:16
+app/views/posts/index.html.erb:15
+Started GET "/posts" for 127.0.0.1 at 2021-03-17 14:17:45 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:15
+  Rendered posts/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1067)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 2832)
+Completed 200 OK in 12ms (Views: 8.3ms | ActiveRecord: 0.2ms | Allocations: 5247)
+
+
+Started GET "/posts" for 127.0.0.1 at 2021-03-17 14:17:50 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:15
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 772)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 2234)
+Completed 200 OK in 9ms (Views: 6.1ms | ActiveRecord: 0.2ms | Allocations: 3790)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2021-03-17 14:18:43 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:62:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 248)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 1999)
+Completed 200 OK in 10ms (Views: 4.1ms | ActiveRecord: 0.3ms | Allocations: 4950)
+
+
+Started GET "/posts" for 127.0.0.1 at 2021-03-17 14:18:44 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:15
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1043)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 2505)
+Completed 200 OK in 9ms (Views: 5.4ms | ActiveRecord: 0.2ms | Allocations: 4189)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2021-03-17 14:18:45 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:62:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 88)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 1550)
+Completed 200 OK in 6ms (Views: 1.6ms | ActiveRecord: 0.2ms | Allocations: 3646)
+
+
+Started GET "/posts" for 127.0.0.1 at 2021-03-17 14:18:47 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:15
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 772)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | Allocations: 2248)
+Completed 200 OK in 7ms (Views: 4.1ms | ActiveRecord: 0.2ms | Allocations: 3804)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2021-03-17 14:18:47 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:62:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 88)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 1550)
+Completed 200 OK in 7ms (Views: 2.7ms | ActiveRecord: 0.2ms | Allocations: 3646)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-17 14:18:47 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:15
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 772)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 2234)
+Completed 200 OK in 9ms (Views: 6.4ms | ActiveRecord: 0.2ms | Allocations: 3790)
+
+
+Started GET "/posts" for 127.0.0.1 at 2021-03-17 14:18:48 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:15
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 772)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 2234)
+Completed 200 OK in 8ms (Views: 4.9ms | ActiveRecord: 0.2ms | Allocations: 3789)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2021-03-17 14:18:48 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:62:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 88)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 1564)
+Completed 200 OK in 7ms (Views: 3.1ms | ActiveRecord: 0.2ms | Allocations: 3660)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2021-03-17 14:18:52 +0100
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 1.8ms | Allocations: 1006)
+  Rendered posts/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1357)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 2817)
+Completed 200 OK in 10ms (Views: 5.3ms | ActiveRecord: 0.1ms | Allocations: 4511)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-17 14:18:53 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:15
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 772)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 2234)
+Completed 200 OK in 6ms (Views: 3.5ms | ActiveRecord: 0.2ms | Allocations: 3788)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-17 14:18:56 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:15
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 772)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | Allocations: 2234)
+Completed 200 OK in 7ms (Views: 3.1ms | ActiveRecord: 0.2ms | Allocations: 3789)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-17 14:19:16 +0100
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:15
+  Rendered posts/index.html.erb within layouts/application (Duration: 10.6ms | Allocations: 4514)
+  Rendered layout layouts/application.html.erb (Duration: 18.2ms | Allocations: 9522)
+Completed 200 OK in 39ms (Views: 20.2ms | ActiveRecord: 1.5ms | Allocations: 20823)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-17 14:23:54 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:15
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1147)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | Allocations: 2914)
+Completed 200 OK in 9ms (Views: 5.0ms | ActiveRecord: 0.2ms | Allocations: 5381)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2021-03-17 14:23:57 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  
+Started GET "/users/sign_out" for 127.0.0.1 at 2021-03-17 14:24:26 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  
+Started GET "/" for 127.0.0.1 at 2021-03-17 14:24:28 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:15
+  Rendered posts/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1253)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 3001)
+Completed 200 OK in 16ms (Views: 11.1ms | ActiveRecord: 0.3ms | Allocations: 5417)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-17 14:24:30 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:15
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 2361)
+Completed 200 OK in 9ms (Views: 5.3ms | ActiveRecord: 0.2ms | Allocations: 3936)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2021-03-17 14:24:31 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 0.1ms | Allocations: 4422)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-17 14:24:31 +0100
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms | Allocations: 309)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-03-17 14:24:31 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 622)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.9ms | Allocations: 2810)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 4325)
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 0.0ms | Allocations: 6222)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-17 14:24:45 +0100
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 240)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-03-17 14:24:45 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 154)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1011)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 2473)
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.0ms | Allocations: 3150)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-17 14:24:50 +0100
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 242)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-03-17 14:24:50 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 154)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1011)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 2475)
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 0.0ms | Allocations: 3160)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-17 14:26:51 +0100
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/posts/index.html.erb:15
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:15
+  Rendered posts/index.html.erb within layouts/application (Duration: 8.0ms | Allocations: 4596)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 6133)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 1.1ms | Allocations: 7308)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-17 14:36:21 +0100
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered collection of posts/_post.html.erb [1 times] (Duration: 0.7ms | Allocations: 222)
+  Rendered posts/index.html.erb within layouts/application (Duration: 8.3ms | Allocations: 4950)
+  Rendered layout layouts/application.html.erb (Duration: 19.8ms | Allocations: 6683)
+Completed 200 OK in 23ms (Views: 21.2ms | ActiveRecord: 0.3ms | Allocations: 8551)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-17 14:36:59 +0100
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered collection of posts/_post.html.erb [1 times] (Duration: 0.7ms | Allocations: 191)
+  Rendered posts/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1321)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 3261)
+Completed 200 OK in 13ms (Views: 11.5ms | ActiveRecord: 0.1ms | Allocations: 4588)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-17 14:38:40 +0100
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered collection of posts/_post.html.erb [1 times] (Duration: 0.5ms | Allocations: 108)
+  Rendered posts/index.html.erb within layouts/application (Duration: 5.6ms | Allocations: 949)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 2564)
+Completed 200 OK in 13ms (Views: 11.2ms | ActiveRecord: 0.2ms | Allocations: 3032)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2021-03-17 14:41:12 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 524)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 547)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1876)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 3783)
+Completed 200 OK in 20ms (Views: 10.0ms | ActiveRecord: 0.8ms | Allocations: 9235)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-03-17 14:41:15 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.5ms | Allocations: 220)
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 153)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1856)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 3546)
+Completed 200 OK in 10ms (Views: 8.2ms | ActiveRecord: 0.0ms | Allocations: 4877)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2021-03-17 14:41:16 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms | Allocations: 392)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 154)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 999)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 2591)
+Completed 200 OK in 8ms (Views: 6.6ms | ActiveRecord: 0.0ms | Allocations: 3170)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-03-17 14:41:17 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 106)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1063)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | Allocations: 2681)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.0ms | Allocations: 3279)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2021-03-17 14:41:17 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 392)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 154)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 999)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 2591)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.0ms | Allocations: 3169)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2021-03-17 14:42:09 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"dadada@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "dadada@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 11ms (ActiveRecord: 0.3ms | Allocations: 3597)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"dadada@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 154)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1007)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 2589)
+Completed 200 OK in 212ms (Views: 4.7ms | ActiveRecord: 0.0ms | Allocations: 3783)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-03-17 14:42:11 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 106)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1063)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 2695)
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.0ms | Allocations: 3297)
+
+
+Started POST "/users" for 127.0.0.1 at 2021-03-17 14:42:25 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"dadada1@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dadada1@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "dadada1@gmail.com"], ["encrypted_password", "$2a$12$mtm839UGouaRb.KGTIydcOMvFqbiXjOUiPFeloxsVBld.MzgXjHQO"], ["created_at", "2021-03-17 13:42:26.076028"], ["updated_at", "2021-03-17 13:42:26.076028"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 215ms (ActiveRecord: 3.3ms | Allocations: 9421)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-17 14:42:26 +0100
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:3:in `post_info'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:5:in `block in post_info'
+  Rendered collection of posts/_post.html.erb [1 times] (Duration: 10.0ms | Allocations: 4297)
+  Rendered posts/index.html.erb within layouts/application (Duration: 12.2ms | Allocations: 5352)
+  Rendered layout layouts/application.html.erb (Duration: 15.5ms | Allocations: 7073)
+Completed 200 OK in 18ms (Views: 16.2ms | ActiveRecord: 0.5ms | Allocations: 8181)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2021-03-17 14:42:56 +0100
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 9.7ms | Allocations: 3230)
+  Rendered posts/new.html.erb within layouts/application (Duration: 11.2ms | Allocations: 3580)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 5210)
+Completed 200 OK in 20ms (Views: 16.6ms | ActiveRecord: 0.1ms | Allocations: 6905)
+
+
+Started POST "/posts" for 127.0.0.1 at 2021-03-17 14:42:58 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"dadada", "body"=>"dadadad"}, "commit"=>"Create Post"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:26:in `block in create'
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "dadada"], ["body", "dadadad"], ["user_id", 3], ["created_at", "2021-03-17 13:42:58.642582"], ["updated_at", "2021-03-17 13:42:58.642582"]]
+  ↳ app/controllers/posts_controller.rb:26:in `block in create'
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:26:in `block in create'
+Redirected to http://localhost:3000/posts/2
+Completed 302 Found in 17ms (ActiveRecord: 4.2ms | Allocations: 7494)
+
+
+Started GET "/posts/2" for 127.0.0.1 at 2021-03-17 14:42:58 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:62:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 231)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:18:in `user_sessions'
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 2696)
+Completed 200 OK in 10ms (Views: 6.5ms | ActiveRecord: 0.3ms | Allocations: 3985)
+
+
+Started GET "/posts" for 127.0.0.1 at 2021-03-17 14:42:59 +0100
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:3:in `post_info'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:5:in `block in post_info'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:5:in `block in post_info'
+  Rendered collection of posts/_post.html.erb [2 times] (Duration: 5.5ms | Allocations: 2685)
+  Rendered posts/index.html.erb within layouts/application (Duration: 7.5ms | Allocations: 3515)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 5141)
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.4ms | Allocations: 5610)
+
+
+Started GET "/posts" for 127.0.0.1 at 2021-03-17 14:43:01 +0100
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:3:in `post_info'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:5:in `block in post_info'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:5:in `block in post_info'
+  Rendered collection of posts/_post.html.erb [2 times] (Duration: 10.5ms | Allocations: 2684)
+  Rendered posts/index.html.erb within layouts/application (Duration: 13.8ms | Allocations: 3514)
+  Rendered layout layouts/application.html.erb (Duration: 17.3ms | Allocations: 5140)
+Completed 200 OK in 19ms (Views: 17.3ms | ActiveRecord: 0.6ms | Allocations: 5609)
+
+
+Started GET "/posts" for 127.0.0.1 at 2021-03-17 14:43:36 +0100
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:3:in `post_info'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:5:in `block in post_info'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:5:in `block in post_info'
+  Rendered collection of posts/_post.html.erb [2 times] (Duration: 12.8ms | Allocations: 2770)
+  Rendered posts/index.html.erb within layouts/application (Duration: 14.9ms | Allocations: 3834)
+  Rendered layout layouts/application.html.erb (Duration: 17.4ms | Allocations: 5799)
+Completed 200 OK in 20ms (Views: 18.3ms | ActiveRecord: 0.5ms | Allocations: 7127)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-17 14:43:39 +0100
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:3:in `post_info'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:5:in `block in post_info'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:5:in `block in post_info'
+  Rendered collection of posts/_post.html.erb [2 times] (Duration: 6.7ms | Allocations: 2683)
+  Rendered posts/index.html.erb within layouts/application (Duration: 8.4ms | Allocations: 3514)
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 5140)
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.4ms | Allocations: 5611)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-17 14:43:49 +0100
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:3:in `post_info'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:5:in `block in post_info'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:5:in `block in post_info'
+  Rendered collection of posts/_post.html.erb [2 times] (Duration: 5.0ms | Allocations: 2769)
+  Rendered posts/index.html.erb within layouts/application (Duration: 6.9ms | Allocations: 3841)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | Allocations: 5796)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.3ms | Allocations: 7125)
+
+
