@@ -267,3 +267,61 @@ Processing by PostsController#show as HTML
 Completed 200 OK in 199ms (Views: 37.0ms | ActiveRecord: 0.4ms | Allocations: 9364)
 
 
+Started GET "/posts" for 127.0.0.1 at 2021-03-17 13:42:27 +0300
+  [1m[35m (20.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:15
+  Rendered posts/index.html.erb within layouts/application (Duration: 137.7ms | Allocations: 5172)
+  Rendered layout layouts/application.html.erb (Duration: 568.8ms | Allocations: 34057)
+Completed 200 OK in 867ms (Views: 675.6ms | ActiveRecord: 2.6ms | Allocations: 39031)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2021-03-17 13:42:51 +0300
+Processing by PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 492.8ms | Allocations: 11139)
+  Rendered posts/new.html.erb within layouts/application (Duration: 514.5ms | Allocations: 11515)
+  Rendered layout layouts/application.html.erb (Duration: 523.1ms | Allocations: 13024)
+Completed 200 OK in 529ms (Views: 524.3ms | ActiveRecord: 0.0ms | Allocations: 13660)
+
+
+Started GET "/posts" for 127.0.0.1 at 2021-03-17 13:42:55 +0300
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:15
+  Rendered posts/index.html.erb within layouts/application (Duration: 9.7ms | Allocations: 829)
+  Rendered layout layouts/application.html.erb (Duration: 40.6ms | Allocations: 2338)
+Completed 200 OK in 45ms (Views: 43.8ms | ActiveRecord: 0.3ms | Allocations: 2801)
+
+
+Started GET "/posts/1/edit" for 127.0.0.1 at 2021-03-17 13:42:58 +0300
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (1.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:62:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 3.0ms | Allocations: 732)
+  Rendered posts/edit.html.erb within layouts/application (Duration: 35.3ms | Allocations: 1000)
+  Rendered layout layouts/application.html.erb (Duration: 86.2ms | Allocations: 2509)
+Completed 200 OK in 266ms (Views: 93.4ms | ActiveRecord: 1.9ms | Allocations: 14345)
+
+
+Started GET "/posts" for 127.0.0.1 at 2021-03-17 13:43:01 +0300
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:15
+  Rendered posts/index.html.erb within layouts/application (Duration: 8.4ms | Allocations: 1401)
+  Rendered layout layouts/application.html.erb (Duration: 26.5ms | Allocations: 7267)
+Completed 200 OK in 29ms (Views: 28.2ms | ActiveRecord: 0.3ms | Allocations: 8094)
+
+
