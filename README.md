@@ -5,12 +5,13 @@
 This is Authentication  project built with devise
 #### Did the following tasks:
 In this project we created a simple user system and secret posts in Ruby on Rails.
-Created a Member & Post model
-Created a Post controller
-Created view pages for member, post & index
-Create migration files with table rules
-Adjust associations between models
-Create migration files with required foreign keys
+- Created a Member & Post model
+- Created a Post controller
+- Created view pages for member, post & index
+- Create migration files with table rules
+- Add devise to user for Authentication (sign_in ,sign_up)
+- Adjust associations between models
+- Create migration files with required foreign keys
 
 <!-- TABLE OF CONTENTS -->
 
