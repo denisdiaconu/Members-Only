@@ -1376,3 +1376,276 @@ Processing by PostsController#index as HTML
 Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.3ms | Allocations: 7125)
 
 
+Started GET "/" for 127.0.0.1 at 2021-03-17 16:52:27 +0300
+  [1m[35m (24.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:3:in `post_info'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:5:in `block in post_info'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:5:in `block in post_info'
+  Rendered collection of posts/_post.html.erb [2 times] (Duration: 275.3ms | Allocations: 18334)
+  Rendered posts/index.html.erb within layouts/application (Duration: 374.6ms | Allocations: 34665)
+  Rendered layout layouts/application.html.erb (Duration: 1407.7ms | Allocations: 86383)
+Completed 200 OK in 1793ms (Views: 1499.3ms | ActiveRecord: 6.0ms | Allocations: 94521)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2021-03-17 16:52:39 +0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 409ms (ActiveRecord: 0.3ms | Allocations: 19925)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-17 16:52:40 +0300
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered collection of posts/_post.html.erb [2 times] (Duration: 4.6ms | Allocations: 223)
+  Rendered posts/index.html.erb within layouts/application (Duration: 14.6ms | Allocations: 1149)
+  Rendered layout layouts/application.html.erb (Duration: 31.9ms | Allocations: 6133)
+Completed 200 OK in 35ms (Views: 33.2ms | ActiveRecord: 0.5ms | Allocations: 6605)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2021-03-17 16:52:44 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 411)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 81.9ms | Allocations: 7649)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 328.5ms | Allocations: 10888)
+  Rendered layout layouts/application.html.erb (Duration: 338.6ms | Allocations: 12663)
+Completed 200 OK in 403ms (Views: 362.7ms | ActiveRecord: 0.0ms | Allocations: 14473)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2021-03-17 16:56:06 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 54ms (ActiveRecord: 0.0ms | Allocations: 961)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.9ms | Allocations: 808)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 20.7ms | Allocations: 3007)
+  Rendered layout layouts/application.html.erb (Duration: 56.0ms | Allocations: 6701)
+Completed 200 OK in 125ms (Views: 123.9ms | ActiveRecord: 0.0ms | Allocations: 12535)
+
+
+Started GET "/users/posts/index" for 127.0.0.1 at 2021-03-17 16:56:08 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/users/posts/index"):
+  
+Started GET "/users/posts/index" for 127.0.0.1 at 2021-03-17 16:56:38 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/users/posts/index"):
+  
+Started GET "/users/posts/" for 127.0.0.1 at 2021-03-17 16:56:45 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/users/posts"):
+  
+Started GET "/posts/" for 127.0.0.1 at 2021-03-17 16:57:55 +0300
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered collection of posts/_post.html.erb [2 times] (Duration: 20.8ms | Allocations: 247)
+  Rendered posts/index.html.erb within layouts/application (Duration: 96.6ms | Allocations: 1330)
+  Rendered layout layouts/application.html.erb (Duration: 139.8ms | Allocations: 3387)
+Completed 200 OK in 201ms (Views: 191.1ms | ActiveRecord: 0.4ms | Allocations: 5378)
+
+
+Started GET "/posts/posts/index" for 127.0.0.1 at 2021-03-17 16:58:01 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/posts/posts/index"):
+  
+Started GET "/posts/posts/index" for 127.0.0.1 at 2021-03-17 16:58:49 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/posts/posts/index"):
+  
+Started GET "/posts/posts/index" for 127.0.0.1 at 2021-03-17 16:58:53 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/posts/posts/index"):
+  
+Started GET "/posts/posts/index" for 127.0.0.1 at 2021-03-17 16:58:57 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/posts/posts/index"):
+  
+Started GET "/posts/" for 127.0.0.1 at 2021-03-17 16:58:58 +0300
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered collection of posts/_post.html.erb [2 times] (Duration: 37.8ms | Allocations: 244)
+  Rendered posts/index.html.erb within layouts/application (Duration: 85.2ms | Allocations: 1320)
+  Rendered layout layouts/application.html.erb (Duration: 123.3ms | Allocations: 3378)
+Completed 200 OK in 177ms (Views: 167.6ms | ActiveRecord: 0.4ms | Allocations: 4708)
+
+
+Started GET "/posts/" for 127.0.0.1 at 2021-03-17 16:59:03 +0300
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered collection of posts/_post.html.erb [2 times] (Duration: 0.5ms | Allocations: 159)
+  Rendered posts/index.html.erb within layouts/application (Duration: 7.0ms | Allocations: 989)
+  Rendered layout layouts/application.html.erb (Duration: 19.9ms | Allocations: 2713)
+Completed 200 OK in 33ms (Views: 30.0ms | ActiveRecord: 1.2ms | Allocations: 3177)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2021-03-17 16:59:06 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 390)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 139.2ms | Allocations: 5968)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 204.7ms | Allocations: 9492)
+  Rendered layout layouts/application.html.erb (Duration: 225.3ms | Allocations: 11265)
+Completed 200 OK in 289ms (Views: 286.7ms | ActiveRecord: 0.0ms | Allocations: 12818)
+
+
+Started GET "/users/posts_path" for 127.0.0.1 at 2021-03-17 16:59:08 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/users/posts_path"):
+  
+Started GET "/users/posts_path" for 127.0.0.1 at 2021-03-17 17:03:38 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/users/posts_path"):
+  
+Started POST "/users/sign_in" for 127.0.0.1 at 2021-03-17 17:04:07 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 390)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 19.6ms | Allocations: 536)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 53.1ms | Allocations: 1874)
+  Rendered layout layouts/application.html.erb (Duration: 92.1ms | Allocations: 3901)
+Completed 200 OK in 181ms (Views: 179.2ms | ActiveRecord: 0.0ms | Allocations: 5682)
+
+
+Started GET "/posts" for 127.0.0.1 at 2021-03-17 17:04:11 +0300
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered collection of posts/_post.html.erb [2 times] (Duration: 2.5ms | Allocations: 910)
+  Rendered posts/index.html.erb within layouts/application (Duration: 24.6ms | Allocations: 3891)
+  Rendered layout layouts/application.html.erb (Duration: 91.3ms | Allocations: 13430)
+Completed 200 OK in 123ms (Views: 118.7ms | ActiveRecord: 0.3ms | Allocations: 14844)
+
+
+Started GET "/posts" for 127.0.0.1 at 2021-03-17 17:06:19 +0300
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered collection of posts/_post.html.erb [2 times] (Duration: 22.7ms | Allocations: 3500)
+  Rendered posts/index.html.erb within layouts/application (Duration: 68.6ms | Allocations: 5322)
+  Rendered layout layouts/application.html.erb (Duration: 145.0ms | Allocations: 9582)
+Completed 200 OK in 211ms (Views: 201.8ms | ActiveRecord: 0.3ms | Allocations: 12341)
+
+
+Started GET "/posts" for 127.0.0.1 at 2021-03-17 17:06:41 +0300
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered collection of posts/_post.html.erb [2 times] (Duration: 1.5ms | Allocations: 244)
+  Rendered posts/index.html.erb within layouts/application (Duration: 21.0ms | Allocations: 1326)
+  Rendered layout layouts/application.html.erb (Duration: 103.9ms | Allocations: 3412)
+Completed 200 OK in 166ms (Views: 151.6ms | ActiveRecord: 0.6ms | Allocations: 4736)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-03-17 17:06:49 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 44.4ms | Allocations: 227)
+  Rendered devise/shared/_links.html.erb (Duration: 8.8ms | Allocations: 527)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 127.5ms | Allocations: 10126)
+  Rendered layout layouts/application.html.erb (Duration: 146.0ms | Allocations: 12180)
+Completed 200 OK in 170ms (Views: 168.7ms | ActiveRecord: 0.0ms | Allocations: 15306)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2021-03-17 17:06:52 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms | Allocations: 390)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 164)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 22.2ms | Allocations: 1373)
+  Rendered layout layouts/application.html.erb (Duration: 69.3ms | Allocations: 3146)
+Completed 200 OK in 117ms (Views: 114.2ms | ActiveRecord: 0.0ms | Allocations: 4349)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2021-03-17 17:08:31 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 8ms (Allocations: 532)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 178)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 8.7ms | Allocations: 1156)
+  Rendered layout layouts/application.html.erb (Duration: 44.4ms | Allocations: 13035)
+Completed 200 OK in 98ms (Views: 72.8ms | ActiveRecord: 2.9ms | Allocations: 20408)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2021-03-17 17:09:05 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 7ms (Allocations: 532)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 5.6ms | Allocations: 178)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 8.6ms | Allocations: 1096)
+  Rendered layout layouts/application.html.erb (Duration: 30.2ms | Allocations: 2947)
+Completed 200 OK in 57ms (Views: 32.0ms | ActiveRecord: 3.4ms | Allocations: 8511)
+
+

@@ -18,11 +18,11 @@ module PostsHelper
     if user_signed_in?
       content_tag(:div) do
         (button_to 'sign out', destroy_user_session_path, method: :delete) +
-          (link_to 'new post', new_post_path, method: :delete)
+          (button_to 'new post', new_post_path, method: :delete)
       end
     else
       (button_to 'sign in', new_user_session_path) +
-        (link_to 'sign up', new_user_registration_path)
+        (button_to 'sign up', new_user_registration_path)
     end
   end
 end
