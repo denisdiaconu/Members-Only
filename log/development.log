@@ -42,3 +42,56 @@ Started GET "/users" for 127.0.0.1 at 2021-03-17 10:49:53 +0100
   
 ActionController::RoutingError (No route matches [GET] "/users"):
   
+Started GET "/" for 127.0.0.1 at 2021-03-17 12:59:21 +0300
+  [1m[35m (49.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (uninitialized constant UsersController):
+  
+Started GET "/" for 127.0.0.1 at 2021-03-17 12:59:33 +0300
+  
+ActionController::RoutingError (uninitialized constant UsersController):
+  
+Started GET "/" for 127.0.0.1 at 2021-03-17 12:59:38 +0300
+  
+ActionController::RoutingError (uninitialized constant UsersController):
+  
+Started GET "/users/" for 127.0.0.1 at 2021-03-17 12:59:49 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users/" for 127.0.0.1 at 2021-03-17 13:00:01 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-03-17 13:00:13 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 99.7ms | Allocations: 2848)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 816.9ms | Allocations: 28838)
+  Rendered layout layouts/application.html.erb (Duration: 1203.5ms | Allocations: 38006)
+Completed 200 OK in 1415ms (Views: 1228.0ms | ActiveRecord: 1.5ms | Allocations: 46754)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-03-17 13:00:22 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 46.6ms | Allocations: 3336)
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 156)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 135.1ms | Allocations: 15679)
+  Rendered layout layouts/application.html.erb (Duration: 149.2ms | Allocations: 17073)
+Completed 200 OK in 171ms (Views: 169.3ms | ActiveRecord: 0.0ms | Allocations: 18441)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-03-17 13:00:24 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 156)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.9ms | Allocations: 1014)
+  Rendered layout layouts/application.html.erb (Duration: 58.4ms | Allocations: 2353)
+Completed 200 OK in 131ms (Views: 126.7ms | ActiveRecord: 0.0ms | Allocations: 3027)
+
+
