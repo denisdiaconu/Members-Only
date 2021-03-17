@@ -453,3 +453,99 @@ FOREIGN KEY ("user_id")
   [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2021-03-17 10:18:24 +0100
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1481)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/denis/SITES/members2/Members-Only/public/packs
+[Webpacker] Hash: ce14c115e350524bb5a9
+Version: webpack 4.46.0
+Time: 1372ms
+Built at: 03/17/2021 10:18:27 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-b43fa54005da8e229d8c.js    125 KiB  application  [emitted] [immutable]  application
+js/application-b43fa54005da8e229d8c.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-b43fa54005da8e229d8c.js js/application-b43fa54005da8e229d8c.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 492 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 3042.7ms | Allocations: 21871)
+Completed 200 OK in 3055ms (Views: 3045.7ms | ActiveRecord: 0.1ms | Allocations: 26674)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2021-03-17 10:18:31 +0100
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 15.6ms | Allocations: 5915)
+  Rendered users/new.html.erb within layouts/application (Duration: 16.6ms | Allocations: 6285)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 21.0ms | Allocations: 9245)
+Completed 200 OK in 27ms (Views: 21.5ms | ActiveRecord: 0.5ms | Allocations: 13306)
+
+
+Started GET "/posts" for 127.0.0.1 at 2021-03-17 10:18:35 +0100
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:16
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1077)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 4112)
+Completed 200 OK in 16ms (Views: 8.1ms | ActiveRecord: 0.2ms | Allocations: 6389)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2021-03-17 10:18:40 +0100
+Processing by PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 4.3ms | Allocations: 1556)
+  Rendered posts/new.html.erb within layouts/application (Duration: 5.3ms | Allocations: 1902)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 4870)
+Completed 200 OK in 19ms (Views: 11.2ms | ActiveRecord: 0.7ms | Allocations: 8256)
+
+
+Started POST "/posts" for 127.0.0.1 at 2021-03-17 10:18:43 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"dada", "body"=>"dadad", "user_id"=>"dada"}, "commit"=>"Create Post"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 2.3ms | Allocations: 1336)
+  Rendered posts/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1449)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 4348)
+Completed 422 Unprocessable Entity in 50ms (Views: 7.9ms | ActiveRecord: 0.3ms | Allocations: 11888)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-17 10:20:59 +0100
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/posts/index.html.erb:16
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:16
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1533)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 4549)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.4ms | Allocations: 5862)
+
+
