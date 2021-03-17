@@ -4,9 +4,13 @@
 # Ruby on Rails Forms
 This is Authentication  project built with devise
 #### Did the following tasks:
-
-This project consist on a Ruby on Rails server that includes Controls, Views and Models to create an User with 3 parametters: Username, Email and Password. These parametters are validated through the Model, and the user can create new users and update existing users .
-- Create a Post 
+In this project we created a simple user system and secret posts in Ruby on Rails.
+Created a Member & Post model
+Created a Post controller
+Created view pages for member, post & index
+Create migration files with table rules
+Adjust associations between models
+Create migration files with required foreign keys
 ## Screenshoot
 <!-- ![FFORM1](https://user-images.githubusercontent.com/11162987/110925238-fe6c1900-8333-11eb-991e-829757a9c6ce.JPG)
 ![formdata1](https://user-images.githubusercontent.com/11162987/110908539-0457ff00-8320-11eb-9a24-48505689fbb7.JPG)
