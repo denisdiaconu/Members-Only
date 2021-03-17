@@ -109,3 +109,104 @@ FOREIGN KEY ("user_id")
   [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2021-03-17 13:08:32 +0300
+  [1m[35m (17.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:16
+  Rendered posts/index.html.erb within layouts/application (Duration: 61.9ms | Allocations: 10085)
+  Rendered layout layouts/application.html.erb (Duration: 1028.1ms | Allocations: 44036)
+Completed 200 OK in 1324ms (Views: 1103.4ms | ActiveRecord: 0.4ms | Allocations: 50844)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2021-03-17 13:08:36 +0300
+Processing by PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 553.3ms | Allocations: 12227)
+  Rendered posts/new.html.erb within layouts/application (Duration: 589.8ms | Allocations: 12603)
+  Rendered layout layouts/application.html.erb (Duration: 609.1ms | Allocations: 14111)
+Completed 200 OK in 672ms (Views: 637.9ms | ActiveRecord: 7.3ms | Allocations: 17791)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-03-17 13:11:34 +0300
+  [1m[35m (37.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 118.6ms | Allocations: 4618)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 704.7ms | Allocations: 29167)
+  Rendered layout layouts/application.html.erb (Duration: 1014.3ms | Allocations: 33806)
+Completed 200 OK in 1538ms (Views: 1201.4ms | ActiveRecord: 1.9ms | Allocations: 45366)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-03-17 13:11:40 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 24.5ms | Allocations: 227)
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 156)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 113.6ms | Allocations: 2555)
+  Rendered layout layouts/application.html.erb (Duration: 132.0ms | Allocations: 4119)
+Completed 200 OK in 150ms (Views: 149.1ms | ActiveRecord: 0.0ms | Allocations: 5463)
+
+
+Started POST "/users" for 127.0.0.1 at 2021-03-17 13:12:04 +0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"billoa42@hotmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "billoa42@hotmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "billoa42@hotmail.com"], ["encrypted_password", "$2a$12$IjL76QKJsTcgwwf31bThgeYIOvzbSwVI2yX/jKzIl4t/zbFlH1naS"], ["created_at", "2021-03-17 10:12:05.337717"], ["updated_at", "2021-03-17 10:12:05.337717"]]
+  [1m[36mTRANSACTION (52.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 1367ms (ActiveRecord: 54.3ms | Allocations: 26619)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-17 13:12:05 +0300
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:16
+  Rendered posts/index.html.erb within layouts/application (Duration: 43.7ms | Allocations: 5082)
+  Rendered layout layouts/application.html.erb (Duration: 81.2ms | Allocations: 6923)
+Completed 200 OK in 225ms (Views: 98.1ms | ActiveRecord: 0.8ms | Allocations: 11167)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2021-03-17 13:12:12 +0300
+Processing by PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 85.1ms | Allocations: 8367)
+  Rendered posts/new.html.erb within layouts/application (Duration: 177.0ms | Allocations: 17032)
+  Rendered layout layouts/application.html.erb (Duration: 217.4ms | Allocations: 18812)
+Completed 200 OK in 282ms (Views: 244.8ms | ActiveRecord: 1.5ms | Allocations: 24151)
+
+
+Started POST "/posts" for 127.0.0.1 at 2021-03-17 13:12:28 +0300
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"greeting", "body"=>"hello world", "user_id"=>""}, "commit"=>"Create Post"}
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 10.6ms | Allocations: 1339)
+  Rendered posts/new.html.erb within layouts/application (Duration: 11.8ms | Allocations: 1453)
+  Rendered layout layouts/application.html.erb (Duration: 34.5ms | Allocations: 2962)
+Completed 422 Unprocessable Entity in 204ms (Views: 36.1ms | ActiveRecord: 0.0ms | Allocations: 6454)
+
+
+  [1m[35m (18.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePosts (20210317100406)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (5.7ms)[0m  [1m[35mDROP TABLE "posts"[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.5ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20210317100406"]]
+  [1m[36mTRANSACTION (25.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
