@@ -267,3 +267,62 @@ Processing by PostsController#show as HTML
 Completed 200 OK in 199ms (Views: 37.0ms | ActiveRecord: 0.4ms | Allocations: 9364)
 
 
+Started GET "/" for 127.0.0.1 at 2021-03-17 11:27:45 +0100
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:15
+  Rendered posts/index.html.erb within layouts/application (Duration: 6.9ms | Allocations: 4598)
+  Rendered layout layouts/application.html.erb (Duration: 37.2ms | Allocations: 20819)
+Completed 200 OK in 47ms (Views: 38.7ms | ActiveRecord: 0.5ms | Allocations: 25067)
+
+
+Started GET "/users" for 127.0.0.1 at 2021-03-17 11:28:01 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-03-17 11:28:21 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 622)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 14.4ms | Allocations: 8025)
+  Rendered layout layouts/application.html.erb (Duration: 15.9ms | Allocations: 9497)
+Completed 200 OK in 27ms (Views: 17.5ms | ActiveRecord: 0.5ms | Allocations: 15544)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-17 11:33:39 +0100
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:15
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1101)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 2795)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.1ms | Allocations: 4124)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-17 11:34:16 +0100
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:15
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1093)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 2778)
+Completed 200 OK in 7ms (Views: 5.4ms | ActiveRecord: 0.1ms | Allocations: 4093)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-03-17 11:34:42 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 534)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1854)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 3318)
+Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.0ms | Allocations: 4959)
+
+
