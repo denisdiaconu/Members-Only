@@ -54,6 +54,7 @@ To use THIS ACTIVE record project :
 
 - GitHub: [@billodiallo](https://github.com/billodiallo)
 - Twitter: [@BilloDi83547008](https://twitter.com/BilloDi83547008)
+LinkedIn: [Billo Diallo](https://www.linkedin.com/in/mabillodiallo/)
 
 👤 **Denis Andrei Diaconu**
 
