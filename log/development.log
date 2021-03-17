@@ -13,3 +13,429 @@ Migrating to CreateUsers (20210317075915)
   [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2021-03-17 11:24:36 +0300
+  [1m[35m (52.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/railties-6.1.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/railties-6.1.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 108.2ms | Allocations: 542)
+Completed 200 OK in 436ms (Views: 199.9ms | ActiveRecord: 0.0ms | Allocations: 5189)
+
+
+Started GET "/users/" for 127.0.0.1 at 2021-03-17 11:24:46 +0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 40.8ms | Allocations: 1779)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/webpack_runner.rb:23:in `exec': No such file or directory - C:\\Users\\Admin\\Documents\\Ruby_on_rails\\project-denis-billo-rails\\Members-Only\\node_modules\\.bin/webpack (Errno::ENOENT)
+	from C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/webpack_runner.rb:23:in `block in run'
+	from C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/webpack_runner.rb:22:in `chdir'
+	from C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/webpack_runner.rb:22:in `run'
+	from C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/runner.rb:6:in `run'
+	from ./bin/webpack:17:in `block in <main>'
+	from ./bin/webpack:16:in `chdir'
+	from ./bin/webpack:16:in `<main>'
+
+  Rendered layout layouts/application.html.erb (Duration: 4967.1ms | Allocations: 99296)
+Completed 500 Internal Server Error in 5067ms (ActiveRecord: 1.2ms | Allocations: 104887)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in C:/Users/Admin/Documents/Ruby_on_rails/project-denis-billo-rails/Members-Only/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/users/" for 127.0.0.1 at 2021-03-17 11:25:32 +0300
+  
+SyntaxError (C:/Users/Admin/Documents/Ruby_on_rails/project-denis-billo-rails/Members-Only/config/routes.rb:2: syntax error, unexpected ':', expecting `end'
+  resources : "users#index"
+            ^
+C:/Users/Admin/Documents/Ruby_on_rails/project-denis-billo-rails/Members-Only/config/routes.rb:4: syntax error, unexpected `end', expecting end-of-input):
+  
+config/routes.rb:2: syntax error, unexpected ':', expecting `end'
+config/routes.rb:4: syntax error, unexpected `end', expecting end-of-input
+config/routes.rb:2: syntax error, unexpected ':', expecting `end'
+config/routes.rb:4: syntax error, unexpected `end', expecting end-of-input
+config/routes.rb:2: syntax error, unexpected ':', expecting `end'
+config/routes.rb:4: syntax error, unexpected `end', expecting end-of-input
+Started GET "/users/" for 127.0.0.1 at 2021-03-17 11:25:47 +0300
+  
+ArgumentError ('users#index' is not a supported controller name. This can lead to potential routing problems. See https://guides.rubyonrails.org/routing.html#specifying-a-controller-to-use):
+  
+config/routes.rb:2:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/users/" for 127.0.0.1 at 2021-03-17 11:26:37 +0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 8.1ms | Allocations: 1537)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/webpack_runner.rb:23:in `exec': No such file or directory - C:\\Users\\Admin\\Documents\\Ruby_on_rails\\project-denis-billo-rails\\Members-Only\\node_modules\\.bin/webpack (Errno::ENOENT)
+	from C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/webpack_runner.rb:23:in `block in run'
+	from C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/webpack_runner.rb:22:in `chdir'
+	from C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/webpack_runner.rb:22:in `run'
+	from C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/runner.rb:6:in `run'
+	from ./bin/webpack:17:in `block in <main>'
+	from ./bin/webpack:16:in `chdir'
+	from ./bin/webpack:16:in `<main>'
+
+  Rendered layout layouts/application.html.erb (Duration: 3220.0ms | Allocations: 58082)
+Completed 500 Internal Server Error in 3228ms (ActiveRecord: 0.9ms | Allocations: 59121)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in C:/Users/Admin/Documents/Ruby_on_rails/project-denis-billo-rails/Members-Only/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/users/" for 127.0.0.1 at 2021-03-17 11:27:21 +0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 12.3ms | Allocations: 1033)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/webpack_runner.rb:23:in `exec': No such file or directory - C:\\Users\\Admin\\Documents\\Ruby_on_rails\\project-denis-billo-rails\\Members-Only\\node_modules\\.bin/webpack (Errno::ENOENT)
+	from C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/webpack_runner.rb:23:in `block in run'
+	from C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/webpack_runner.rb:22:in `chdir'
+	from C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/webpack_runner.rb:22:in `run'
+	from C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/runner.rb:6:in `run'
+	from ./bin/webpack:17:in `block in <main>'
+	from ./bin/webpack:16:in `chdir'
+	from ./bin/webpack:16:in `<main>'
+
+  Rendered layout layouts/application.html.erb (Duration: 3742.6ms | Allocations: 59257)
+Completed 500 Internal Server Error in 3746ms (ActiveRecord: 0.3ms | Allocations: 59653)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in C:/Users/Admin/Documents/Ruby_on_rails/project-denis-billo-rails/Members-Only/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/users/new" for 127.0.0.1 at 2021-03-17 11:27:39 +0300
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 643.0ms | Allocations: 13730)
+  Rendered users/new.html.erb within layouts/application (Duration: 691.8ms | Allocations: 14114)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/webpack_runner.rb:23:in `exec': No such file or directory - C:\\Users\\Admin\\Documents\\Ruby_on_rails\\project-denis-billo-rails\\Members-Only\\node_modules\\.bin/webpack (Errno::ENOENT)
+	from C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/webpack_runner.rb:23:in `block in run'
+	from C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/webpack_runner.rb:22:in `chdir'
+	from C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/webpack_runner.rb:22:in `run'
+	from C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/runner.rb:6:in `run'
+	from ./bin/webpack:17:in `block in <main>'
+	from ./bin/webpack:16:in `chdir'
+	from ./bin/webpack:16:in `<main>'
+
+  Rendered layout layouts/application.html.erb (Duration: 4396.6ms | Allocations: 80931)
+Completed 500 Internal Server Error in 4418ms (ActiveRecord: 1.6ms | Allocations: 85383)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in C:/Users/Admin/Documents/Ruby_on_rails/project-denis-billo-rails/Members-Only/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for 127.0.0.1 at 2021-03-17 11:27:53 +0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 9.9ms | Allocations: 728)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/webpack_runner.rb:23:in `exec': No such file or directory - C:\\Users\\Admin\\Documents\\Ruby_on_rails\\project-denis-billo-rails\\Members-Only\\node_modules\\.bin/webpack (Errno::ENOENT)
+	from C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/webpack_runner.rb:23:in `block in run'
+	from C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/webpack_runner.rb:22:in `chdir'
+	from C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/webpack_runner.rb:22:in `run'
+	from C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/runner.rb:6:in `run'
+	from ./bin/webpack:17:in `block in <main>'
+	from ./bin/webpack:16:in `chdir'
+	from ./bin/webpack:16:in `<main>'
+
+  Rendered layout layouts/application.html.erb (Duration: 3473.0ms | Allocations: 64007)
+Completed 500 Internal Server Error in 3475ms (ActiveRecord: 0.5ms | Allocations: 64382)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in C:/Users/Admin/Documents/Ruby_on_rails/project-denis-billo-rails/Members-Only/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+  [1m[35m (26.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2021-03-17 11:39:21 +0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 50.4ms | Allocations: 11453)
+  Rendered layout layouts/application.html.erb (Duration: 73.2ms | Allocations: 14385)
+Completed 200 OK in 145ms (Views: 92.5ms | ActiveRecord: 1.0ms | Allocations: 19008)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2021-03-17 11:39:26 +0300
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 40.4ms | Allocations: 1310)
+  Rendered users/new.html.erb within layouts/application (Duration: 72.2ms | Allocations: 1666)
+  Rendered layout layouts/application.html.erb (Duration: 91.1ms | Allocations: 3151)
+Completed 200 OK in 105ms (Views: 95.1ms | ActiveRecord: 0.0ms | Allocations: 6357)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2021-03-17 11:43:53 +0300
+  [1m[35m (27.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 323.2ms | Allocations: 3639)
+  Rendered users/new.html.erb within layouts/application (Duration: 365.4ms | Allocations: 4208)
+  Rendered layout layouts/application.html.erb (Duration: 601.2ms | Allocations: 8535)
+Completed 200 OK in 1172ms (Views: 695.8ms | ActiveRecord: 4.9ms | Allocations: 15718)
+
+
+Started GET "/users" for 127.0.0.1 at 2021-03-17 11:44:04 +0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 45.8ms | Allocations: 1115)
+[Webpacker] Compiling...
+Started GET "/users" for 127.0.0.1 at 2021-03-17 11:44:08 +0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 56.9ms | Allocations: 1460)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/webpack_runner.rb:23:in `exec': No such file or directory - C:\\Users\\Admin\\Documents\\Ruby_on_rails\\project-denis-billo-rails\\Members-Only\\node_modules\\.bin/webpack (Errno::ENOENT)
+	from C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/webpack_runner.rb:23:in `block in run'
+	from C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/webpack_runner.rb:22:in `chdir'
+	from C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/webpack_runner.rb:22:in `run'
+	from C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/runner.rb:6:in `run'
+	from ./bin/webpack:17:in `block in <main>'
+	from ./bin/webpack:16:in `chdir'
+	from ./bin/webpack:16:in `<main>'
+
+  Rendered layout layouts/application.html.erb (Duration: 5430.2ms | Allocations: 15543)
+Completed 500 Internal Server Error in 5452ms (ActiveRecord: 1.0ms | Allocations: 16896)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in C:/Users/Admin/Documents/Ruby_on_rails/project-denis-billo-rails/Members-Only/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+[Webpacker] Compilation failed:
+C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/webpack_runner.rb:23:in `exec': No such file or directory - C:\\Users\\Admin\\Documents\\Ruby_on_rails\\project-denis-billo-rails\\Members-Only\\node_modules\\.bin/webpack (Errno::ENOENT)
+	from C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/webpack_runner.rb:23:in `block in run'
+	from C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/webpack_runner.rb:22:in `chdir'
+	from C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/webpack_runner.rb:22:in `run'
+	from C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/runner.rb:6:in `run'
+	from ./bin/webpack:17:in `block in <main>'
+	from ./bin/webpack:16:in `chdir'
+	from ./bin/webpack:16:in `<main>'
+
+  Rendered layout layouts/application.html.erb (Duration: 4169.6ms | Allocations: 182738)
+Completed 500 Internal Server Error in 4173ms (ActiveRecord: 3.8ms | Allocations: 183172)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in C:/Users/Admin/Documents/Ruby_on_rails/project-denis-billo-rails/Members-Only/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/users/new" for 127.0.0.1 at 2021-03-17 11:44:15 +0300
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 3.6ms | Allocations: 1229)
+  Rendered users/new.html.erb within layouts/application (Duration: 6.7ms | Allocations: 1582)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/webpack_runner.rb:23:in `exec': No such file or directory - C:\\Users\\Admin\\Documents\\Ruby_on_rails\\project-denis-billo-rails\\Members-Only\\node_modules\\.bin/webpack (Errno::ENOENT)
+	from C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/webpack_runner.rb:23:in `block in run'
+	from C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/webpack_runner.rb:22:in `chdir'
+	from C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/webpack_runner.rb:22:in `run'
+	from C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/webpacker-5.2.1/lib/webpacker/runner.rb:6:in `run'
+	from ./bin/webpack:17:in `block in <main>'
+	from ./bin/webpack:16:in `chdir'
+	from ./bin/webpack:16:in `<main>'
+
+  Rendered layout layouts/application.html.erb (Duration: 3443.7ms | Allocations: 7556)
+Completed 500 Internal Server Error in 3451ms (ActiveRecord: 0.0ms | Allocations: 8107)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in C:/Users/Admin/Documents/Ruby_on_rails/project-denis-billo-rails/Members-Only/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/users/new" for 127.0.0.1 at 2021-03-17 11:45:29 +0300
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 20.1ms | Allocations: 1244)
+  Rendered users/new.html.erb within layouts/application (Duration: 29.2ms | Allocations: 1607)
+  Rendered layout layouts/application.html.erb (Duration: 44.5ms | Allocations: 3328)
+Completed 200 OK in 67ms (Views: 61.9ms | ActiveRecord: 0.0ms | Allocations: 4658)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2021-03-17 11:47:12 +0300
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 29.5ms | Allocations: 1243)
+  Rendered users/new.html.erb within layouts/application (Duration: 57.9ms | Allocations: 1605)
+  Rendered layout layouts/application.html.erb (Duration: 96.0ms | Allocations: 3312)
+Completed 200 OK in 120ms (Views: 115.6ms | ActiveRecord: 0.0ms | Allocations: 4624)
+
+
