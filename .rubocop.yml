@@ -6,11 +6,11 @@ AllCops:
     - "Guardfile"
     - "Rakefile"
     - "node_modules/**/*"
-    
+
   DisplayCopNames: true
 
 Layout/LineLength:
-  Max: 120
+  Max: 152
 Metrics/MethodLength:
   Max: 20
 Metrics/AbcSize:
