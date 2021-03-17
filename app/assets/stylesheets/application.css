@@ -13,3 +13,45 @@
  *= require_tree .
  *= require_self
  */
+.test {
+    width: 70%;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    border: 5px solid white;
+    margin: auto;
+    border: 20px solid white;
+}
+
+.test8 {
+    font-weight: bold;
+}
+
+.test2 {
+    width: 70%;
+    margin: auto auto 20px auto;
+}
+
+.special {
+    column-gap: 20px;
+}
+
+.btn_all {
+    background-color: rgb(112, 104, 104);
+    color: white;
+    font-weight: bold;
+    height: 35px;
+    border-radius: 5px;
+    border: 3px solid white;
+}
+
+.btn_all:hover {
+    opacity: 0.4;
+}
+
+.navbar-brand:hover {
+    background-color: rgb(112, 104, 104);
+    color: white;
+    font-weight: bold;
+}
