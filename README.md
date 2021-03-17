@@ -1,7 +1,7 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 
-# Ruby on Rails Forms
+# Ruby on Rails Authentication
 This is Authentication  project built with devise
 #### Did the following tasks:
 In this project we created a simple user system and secret posts in Ruby on Rails.
@@ -11,10 +11,6 @@ Created view pages for member, post & index
 Create migration files with table rules
 Adjust associations between models
 Create migration files with required foreign keys
-## Screenshoot
-<!-- ![FFORM1](https://user-images.githubusercontent.com/11162987/110925238-fe6c1900-8333-11eb-991e-829757a9c6ce.JPG)
-![formdata1](https://user-images.githubusercontent.com/11162987/110908539-0457ff00-8320-11eb-9a24-48505689fbb7.JPG)
-![form_data2](https://user-images.githubusercontent.com/11162987/110908543-06ba5900-8320-11eb-9a22-b2c6ca18c390.JPG) -->
 
 <!-- TABLE OF CONTENTS -->
 
@@ -40,7 +36,8 @@ To use THIS ACTIVE record project :
   ```
     https://github.com/denisdiaconu/Members-Only.git
   ```
-* `cd` into `form_rails` directory and run `bundle install`
+* `cd` into `Members-Only` directory and run `bundle install`
+
 
 ## Built With
 - Ruby
@@ -50,6 +47,7 @@ To use THIS ACTIVE record project :
 - Type bundle install in the root file of the project.
 - Type rails db:migrate in the root file of the project.
 - Type rails s in the root file of the project.
+- You can go to rails console by typing rails console and create Member by using Active Record commands and methods.
 
 <!-- CONTACT -->
 ## Contact
