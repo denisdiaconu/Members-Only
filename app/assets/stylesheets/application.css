@@ -55,3 +55,23 @@
     color: white;
     font-weight: bold;
 }
+
+.btn_special {
+    background-color: tomato;
+    text-decoration: none;
+    display: flex;
+    justify-items: center;
+    width: 60px;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn_special1 {
+    background-color: tomato;
+    text-decoration: none;
+    display: flex;
+    justify-items: center;
+    width: 80px;
+    align-items: center;
+    justify-content: center;
+}
