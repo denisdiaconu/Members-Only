@@ -8119,3 +8119,210 @@ Processing by PostsController#index as HTML
 Completed 200 OK in 34ms (Views: 32.6ms | ActiveRecord: 0.6ms | Allocations: 13705)
 
 
+Started GET "/" for 127.0.0.1 at 2021-03-18 08:49:37 +0100
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:6
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:3:in `post_info'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:5:in `block in post_info'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:5:in `block in post_info'
+  Rendered collection of posts/_post.html.erb [2 times] (Duration: 11.1ms | Allocations: 9675)
+  Rendered posts/index.html.erb within layouts/application (Duration: 18.2ms | Allocations: 14519)
+  Rendered layout layouts/application.html.erb (Duration: 52.7ms | Allocations: 35888)
+Completed 200 OK in 62ms (Views: 54.0ms | ActiveRecord: 1.2ms | Allocations: 40521)
+
+
+Started GET "/posts" for 127.0.0.1 at 2021-03-18 08:49:41 +0100
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:6
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:3:in `post_info'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:5:in `block in post_info'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:5:in `block in post_info'
+  Rendered collection of posts/_post.html.erb [2 times] (Duration: 18.1ms | Allocations: 2739)
+  Rendered posts/index.html.erb within layouts/application (Duration: 20.0ms | Allocations: 3578)
+  Rendered layout layouts/application.html.erb (Duration: 23.7ms | Allocations: 5310)
+Completed 200 OK in 25ms (Views: 23.8ms | ActiveRecord: 0.3ms | Allocations: 5794)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2021-03-18 08:49:43 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 11ms (ActiveRecord: 0.2ms | Allocations: 4834)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-18 08:49:43 +0100
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:6
+  Rendered collection of posts/_post.html.erb [2 times] (Duration: 2.0ms | Allocations: 266)
+  Rendered posts/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1102)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 2815)
+Completed 200 OK in 10ms (Views: 7.9ms | ActiveRecord: 0.2ms | Allocations: 3286)
+
+
+Started GET "/posts" for 127.0.0.1 at 2021-03-18 08:49:47 +0100
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:6
+  Rendered collection of posts/_post.html.erb [2 times] (Duration: 0.4ms | Allocations: 199)
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1036)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 2733)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.1ms | Allocations: 3207)
+
+
+Started POST "/users/sign_up" for 127.0.0.1 at 2021-03-18 08:49:55 +0100
+  
+ActionController::RoutingError (No route matches [POST] "/users/sign_up"):
+  
+Started GET "/posts" for 127.0.0.1 at 2021-03-18 08:50:44 +0100
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/posts/index.html.erb:6
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:6
+  Rendered collection of posts/_post.html.erb [2 times] (Duration: 0.3ms | Allocations: 237)
+  Rendered posts/index.html.erb within layouts/application (Duration: 14.6ms | Allocations: 4887)
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | Allocations: 6603)
+Completed 200 OK in 19ms (Views: 17.8ms | ActiveRecord: 0.7ms | Allocations: 7769)
+
+
+Started GET "/posts" for 127.0.0.1 at 2021-03-18 08:50:46 +0100
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:6
+  Rendered collection of posts/_post.html.erb [2 times] (Duration: 0.3ms | Allocations: 199)
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1030)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 2652)
+Completed 200 OK in 5ms (Views: 4.8ms | ActiveRecord: 0.1ms | Allocations: 3117)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-03-18 08:50:51 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.3ms | Allocations: 223)
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 543)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 3352)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 5050)
+Completed 200 OK in 13ms (Views: 7.9ms | ActiveRecord: 0.5ms | Allocations: 10372)
+
+
+Started GET "/posts" for 127.0.0.1 at 2021-03-18 08:51:00 +0100
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:6
+  Rendered collection of posts/_post.html.erb [2 times] (Duration: 0.4ms | Allocations: 199)
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1038)
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | Allocations: 2662)
+Completed 200 OK in 4ms (Views: 3.9ms | ActiveRecord: 0.1ms | Allocations: 3138)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2021-03-18 08:51:08 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 514)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 235)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.3ms | Allocations: 1697)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 3369)
+Completed 200 OK in 13ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 4766)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2021-03-18 08:51:10 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"dadada1@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "dadada1@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 200ms (ActiveRecord: 0.2ms | Allocations: 4330)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-18 08:51:10 +0100
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:6
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:3:in `post_info'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:5:in `block in post_info'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:5:in `block in post_info'
+  Rendered collection of posts/_post.html.erb [2 times] (Duration: 5.7ms | Allocations: 3774)
+  Rendered posts/index.html.erb within layouts/application (Duration: 7.5ms | Allocations: 4605)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 6343)
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.4ms | Allocations: 6819)
+
+
+Started DELETE "/posts/new" for 127.0.0.1 at 2021-03-18 08:51:15 +0100
+  
+ActionController::RoutingError (No route matches [DELETE] "/posts/new"):
+  
+Started GET "/" for 127.0.0.1 at 2021-03-18 08:51:19 +0100
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:6
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:3:in `post_info'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:5:in `block in post_info'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:5:in `block in post_info'
+  Rendered collection of posts/_post.html.erb [2 times] (Duration: 9.1ms | Allocations: 2736)
+  Rendered posts/index.html.erb within layouts/application (Duration: 11.6ms | Allocations: 3566)
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 5296)
+Completed 200 OK in 15ms (Views: 14.2ms | ActiveRecord: 0.5ms | Allocations: 5766)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-18 08:51:43 +0100
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/posts/index.html.erb:6
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:6
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:3:in `post_info'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:5:in `block in post_info'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/posts_helper.rb:5:in `block in post_info'
+  Rendered collection of posts/_post.html.erb [2 times] (Duration: 12.4ms | Allocations: 7535)
+  Rendered posts/index.html.erb within layouts/application (Duration: 22.4ms | Allocations: 12177)
+  Rendered layout layouts/application.html.erb (Duration: 25.0ms | Allocations: 13906)
+Completed 200 OK in 28ms (Views: 26.0ms | ActiveRecord: 2.0ms | Allocations: 15077)
+
+
