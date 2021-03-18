@@ -10524,3 +10524,226 @@ Processing by Devise::RegistrationsController#new as HTML
 Completed 200 OK in 14ms (Views: 6.0ms | ActiveRecord: 0.3ms | Allocations: 8180)
 
 
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-03-18 09:36:23 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.4ms | Allocations: 212)
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 486)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 2245)
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 12731)
+Completed 200 OK in 23ms (Views: 22.1ms | ActiveRecord: 0.0ms | Allocations: 14523)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-03-18 09:36:57 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 106)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1063)
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 10299)
+Completed 200 OK in 12ms (Views: 11.6ms | ActiveRecord: 0.0ms | Allocations: 10896)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-03-18 09:37:29 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.5ms | Allocations: 212)
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 486)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2244)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 4165)
+Completed 200 OK in 13ms (Views: 11.5ms | ActiveRecord: 0.0ms | Allocations: 5961)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-03-18 09:38:46 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.4ms | Allocations: 212)
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 486)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 2248)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 4159)
+Completed 200 OK in 13ms (Views: 11.8ms | Allocations: 5952)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-03-18 09:38:49 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 106)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1065)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 2690)
+Completed 200 OK in 6ms (Views: 5.3ms | Allocations: 3284)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-03-18 09:38:49 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 106)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1065)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | Allocations: 2690)
+Completed 200 OK in 5ms (Views: 4.2ms | Allocations: 3283)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-03-18 09:38:51 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 106)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1065)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 2700)
+Completed 200 OK in 7ms (Views: 6.3ms | Allocations: 3297)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-03-18 09:39:17 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.3ms | Allocations: 212)
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 486)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 2253)
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 11358)
+Completed 200 OK in 17ms (Views: 16.0ms | Allocations: 13149)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-03-18 09:40:13 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.7ms | Allocations: 212)
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 561)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 2317)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 4846)
+Completed 200 OK in 9ms (Views: 8.3ms | Allocations: 6639)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2021-03-18 09:40:14 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 1ms (Allocations: 502)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 175)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1362)
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | Allocations: 3034)
+Completed 200 OK in 6ms (Views: 4.9ms | Allocations: 4246)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-03-18 09:40:16 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 180)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1137)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 2772)
+Completed 200 OK in 7ms (Views: 5.4ms | Allocations: 3372)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2021-03-18 09:40:43 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 1ms (Allocations: 389)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.1ms | Allocations: 612)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1924)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 3813)
+Completed 200 OK in 8ms (Views: 7.1ms | Allocations: 5590)
+
+
+Started POST "/users/sign_up" for 127.0.0.1 at 2021-03-18 09:40:47 +0100
+  
+ActionController::RoutingError (No route matches [POST] "/users/sign_up"):
+  
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-03-18 09:40:56 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.9ms | Allocations: 212)
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 486)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 5.8ms | Allocations: 2245)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 4166)
+Completed 200 OK in 16ms (Views: 14.6ms | Allocations: 5958)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-03-18 09:42:54 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.8ms | Allocations: 212)
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 494)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2249)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 4166)
+Completed 200 OK in 12ms (Views: 10.6ms | Allocations: 5954)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-03-18 09:42:56 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 111)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1068)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 2693)
+Completed 200 OK in 6ms (Views: 5.2ms | Allocations: 3287)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-03-18 09:43:09 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.6ms | Allocations: 212)
+  Rendered devise/shared/_links.html.erb (Duration: 1.2ms | Allocations: 495)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 5.0ms | Allocations: 2248)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 4160)
+Completed 200 OK in 12ms (Views: 10.8ms | Allocations: 5940)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-03-18 09:43:16 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.3ms | Allocations: 212)
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 495)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 2248)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 4159)
+Completed 200 OK in 8ms (Views: 7.2ms | Allocations: 5939)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-03-18 09:43:27 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.9ms | Allocations: 212)
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 495)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 6.1ms | Allocations: 2253)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 4168)
+Completed 200 OK in 12ms (Views: 11.4ms | Allocations: 5963)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-03-18 09:43:54 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.3ms | Allocations: 212)
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 486)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 3.5ms | Allocations: 2241)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 4157)
+Completed 200 OK in 9ms (Views: 8.4ms | Allocations: 5945)
+
+

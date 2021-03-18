@@ -82,6 +82,11 @@
     text-align: center;
 }
 
+.special12 {
+    text-align: center;
+    font-weight: bold;
+}
+
 .btn_special1 {
     background-color: tomato;
     text-decoration: none;
