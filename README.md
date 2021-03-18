@@ -48,7 +48,8 @@ To use THIS ACTIVE record project :
 - Type bundle install in the root file of the project.
 - Type rails db:migrate in the root file of the project.
 - Type rails s in the root file of the project.
-- You can go to rails console by typing rails console and create Member by using Active Record commands and methods.
+- You can go to rails console by typing rails console and create Member by using Active Record  commands and methods.
+
 
 <!-- CONTACT -->
 ## Contact
