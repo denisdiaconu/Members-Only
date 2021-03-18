@@ -28,6 +28,10 @@
     font-weight: bold;
 }
 
+.test9 {
+    font-weight: bold;
+}
+
 .test2 {
     width: 70%;
     margin: auto auto 20px auto;
@@ -38,7 +42,6 @@
 }
 
 .btn_all {
-    background-color: rgb(112, 104, 104);
     color: white;
     font-weight: bold;
     height: 35px;
